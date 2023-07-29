@@ -42,7 +42,7 @@ jobs:
           GS_EVENTPRERELEASE5: ${{ github.event.release['prelease'] && 'true' || 'false' }}
           GH_TAG2: ${{ toJson(github.event.release.prelease && '--tag next' || 'na') }}
           PRE_RELEASE: ${{ github.event.release.prerelease }}
-          PRE_RELEASE2: ${{ github.event.release }}
+          PRE_RELEASE2: ${{ toJson(github.event.release) }}
 
           
         
