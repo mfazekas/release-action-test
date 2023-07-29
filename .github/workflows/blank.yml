@@ -30,7 +30,8 @@ jobs:
           GH_JSON: ${{ toJson(github) }}
           GS_EVENTJSON: ${{ toJson(github.event) }}
           GS_EVENTPRERELEASE: ${{ toJson(github.event.release.prelease) }}
-          GH_TAG2: ${{ github.event.release.prelease && "--tag next" || ""}}
+          GH_TAG2: ${{ toJson(github.event.release.prelease && '--tag next' || '') }}
+          
         
       # Runs a single command using the runners shell
       - name: Run another one-line script
