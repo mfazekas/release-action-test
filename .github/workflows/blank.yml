@@ -35,9 +35,9 @@ jobs:
           GS_EVENTJSON: ${{ toJson(github.event) }}
           GS_EVENTRELEASE: ${{ toJson(github.event.release) }}
           GS_EVENTPRERELEASE: ${{ toJson(github.event.release.prelease) }}
-          GS_EVENTPRERELEASE3: ${{ toJson(github.event.release["prelease"]) }}
-          GS_EVENTPRERELEASE4: ${{ github.event.release["prelease"] }}
-          GS_EVENTPRERELEASE5: ${{ github.event.release["prelease"] && 'true' || 'false' }}
+          GS_EVENTPRERELEASE3: ${{ toJson(github.event.release['prelease']) }}
+          GS_EVENTPRERELEASE4: ${{ github.event.release['prelease'] }}
+          GS_EVENTPRERELEASE5: ${{ github.event.release['prelease'] && 'true' || 'false' }}
           GH_TAG2: ${{ toJson(github.event.release.prelease && '--tag next' || 'na') }}
           
         
