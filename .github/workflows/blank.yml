@@ -28,6 +28,8 @@ jobs:
           echo "gh evnet prerelease5: $GS_EVENTPRERELEASE5"
           echo "gh evnet release: $GS_EVENTRELEASE"
           echo "gs tag2: [$GH_TAG2]"
+          echo "gs tag3: [$PRE_RELEASE]"
+          echo "gs tag4: [$PRE_RELEASE2]"
         env:
           GH_PRERELASE: ${{ github.event.release.prelease }}
           GH_TAG: ${{ github.event.release.prelease && '--tag next' || ''}}
@@ -39,6 +41,9 @@ jobs:
           GS_EVENTPRERELEASE4: ${{ github.event.release['prelease'] }}
           GS_EVENTPRERELEASE5: ${{ github.event.release['prelease'] && 'true' || 'false' }}
           GH_TAG2: ${{ toJson(github.event.release.prelease && '--tag next' || 'na') }}
+          PRE_RELEASE: ${{ github.event.release.prerelease }}
+          PRE_RELEASE2: ${{ github.event.release }}
+
           
         
       # Runs a single command using the runners shell
