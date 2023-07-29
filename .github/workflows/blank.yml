@@ -18,11 +18,14 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo ${{ github.event.release.prelease && '--tag next' || ''}}
+        run: echo "gh prerelease: $GH_PRERELASE , gh tag: $GH_TAG"
+        env:
+          GH_PRERELASE: ${{ github.event.release.prelease }}
+          GH_TAG: ${{ github.event.release.prelease && '--tag next' || ''}}
         
       # Runs a single command using the runners shell
       - name: Run another one-line script
-        run: echo ${{ github.event.release.prelease }}
+        run: echo "anrls"
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
