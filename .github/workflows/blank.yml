@@ -23,6 +23,7 @@ jobs:
           echo "gh json: $GH_JSON"
           echo "gh event json: $GS_EVENTJSON"
           echo "gh evnet prerelease: $GS_EVENTPRERELEASE"
+          echo "gh evnet prerelease3: $GS_EVENTPRERELEASE3"
           echo "gh evnet release: $GS_EVENTRELEASE"
           echo "gs tag2: [$GH_TAG2]"
         env:
@@ -32,6 +33,7 @@ jobs:
           GS_EVENTJSON: ${{ toJson(github.event) }}
           GS_EVENTRELEASE: ${{ toJson(github.event.release) }}
           GS_EVENTPRERELEASE: ${{ toJson(github.event.release.prelease) }}
+          GS_EVENTPRERELEASE3: ${{ toString(github.event.release["prelease"]) }}
           GH_TAG2: ${{ toJson(github.event.release.prelease && '--tag next' || 'na') }}
           
         
