@@ -18,7 +18,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo "gh prerelease: $GH_PRERELASE , gh tag: $GH_TAG"
+        run: 'echo gh prerelease: $GH_PRERELASE , gh tag: $GH_TAG'
         env:
           GH_PRERELASE: ${{ github.event.release.prelease }}
           GH_TAG: ${{ github.event.release.prelease && '--tag next' || ''}}
