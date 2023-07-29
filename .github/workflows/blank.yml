@@ -18,10 +18,15 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: 'echo gh prerelease: $GH_PRERELASE , gh tag: $GH_TAG'
+        run: |
+          echo "gh prerelease: $GH_PRERELASE , gh tag: $GH_TAG"
+          echo "gh json: $GH_JSON"
+          echo "gh event json: $GS_EVENTJSON"
         env:
           GH_PRERELASE: ${{ github.event.release.prelease }}
           GH_TAG: ${{ github.event.release.prelease && '--tag next' || ''}}
+          GH_JSON: ${{ toJson(github) }}
+          GS_EVENTJSON: ${{ toJson(github.event) }}
         
       # Runs a single command using the runners shell
       - name: Run another one-line script
