@@ -30,6 +30,7 @@ jobs:
           echo "gs tag2: [$GH_TAG2]"
           echo "gs tag3: [$PRE_RELEASE]"
           echo "gs tag4: [$PRE_RELEASE2]"
+          echo "gs tag5: [${{ github.event.release.prerelease && '--tag next' || 'na' }}]"
         env:
           GH_PRERELASE: ${{ github.event.release.prerelease }}
           GH_TAG: ${{ github.event.release.prerelease && '--tag next' || ''}}
