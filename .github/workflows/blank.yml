@@ -31,16 +31,16 @@ jobs:
           echo "gs tag3: [$PRE_RELEASE]"
           echo "gs tag4: [$PRE_RELEASE2]"
         env:
-          GH_PRERELASE: ${{ github.event.release.prelease }}
-          GH_TAG: ${{ github.event.release.prelease && '--tag next' || ''}}
+          GH_PRERELASE: ${{ github.event.release.prerelease }}
+          GH_TAG: ${{ github.event.release.prerelease && '--tag next' || ''}}
           GH_JSON: ${{ toJson(github) }}
           GS_EVENTJSON: ${{ toJson(github.event) }}
           GS_EVENTRELEASE: ${{ toJson(github.event.release) }}
-          GS_EVENTPRERELEASE: ${{ toJson(github.event.release.prelease) }}
-          GS_EVENTPRERELEASE3: ${{ toJson(github.event.release['prelease']) }}
-          GS_EVENTPRERELEASE4: ${{ github.event.release['prelease'] }}
-          GS_EVENTPRERELEASE5: ${{ github.event.release['prelease'] && 'true' || 'false' }}
-          GH_TAG2: ${{ toJson(github.event.release.prelease && '--tag next' || 'na') }}
+          GS_EVENTPRERELEASE: ${{ toJson(github.event.release.prerelease) }}
+          GS_EVENTPRERELEASE3: ${{ toJson(github.event.release['prerelease']) }}
+          GS_EVENTPRERELEASE4: ${{ github.event.release['prerelease'] }}
+          GS_EVENTPRERELEASE5: ${{ github.event.release['prerelease'] && 'true' || 'false' }}
+          GH_TAG2: ${{ toJson(github.event.release.prerelease && '--tag next' || 'na') }}
           PRE_RELEASE: ${{ github.event.release.prerelease }}
           PRE_RELEASE2: ${{ toJson(github.event.release) }}
 
